@@ -1,5 +1,10 @@
 This is a small program designed to control the flow of overflow saplings from a phytogenic insolator from Thermal Expansion, it uses applied energistcs to move items quickly as 1.20.1 has no item ducts at the time of writing this application.
 
+Mods used in setup
+CC:Tweaked
+Applied Energistics 2
+Thermal Expansion Series
+
 Layout as seen below:
 ![image](https://github.com/user-attachments/assets/2ab0998f-0106-49ee-a83e-48f7af9038ee)
 
