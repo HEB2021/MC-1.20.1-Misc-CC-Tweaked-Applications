@@ -9,7 +9,6 @@ local cc_Strings = require("cc.strings")
 local location_Name = "xxx"
 local name_Map = {"xxx", "xxx"}
 local address_Map = {
-    {"x", "x", "x", "x", "x", "x", "x"},
     {"x", "x", "x", "x", "x", "x", "x"}
 }
 
@@ -325,11 +324,13 @@ function ScreenUpdates ()
         if next_Connection[1] ~= nil then
             info_Screen.write("Next destination: " .. next_Connection[1])
             info_Screen.setCursorPos(1,6)
-            info_Screen.write("Energy/Energy Required: " .. current_Energy .. "/" .. ((cost_Data["keepAlive"] * 120) + cost_Data["open"]))
-            if ((cost_Data["keepAlive"] * 120) + cost_Data["open"]) > current_Energy then
-                has_Energy = false
-            else
-                has_Energy = true
+            if cost_Data ~= nil then
+                info_Screen.write("Energy/Energy Required: " .. current_Energy .. "/" .. ((cost_Data["keepAlive"] * 120) + cost_Data["open"]))
+                if ((cost_Data["keepAlive"] * 120) + cost_Data["open"]) > current_Energy then
+                    has_Energy = false
+                else
+                    has_Energy = true
+                end
             end
         else
             info_Screen.write("Next destination: N/A")
