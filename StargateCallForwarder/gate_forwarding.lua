@@ -53,8 +53,6 @@ function StargateEventHandler ()
         -- Did we receive a message from the other gate
         if next_Try == false then
             if eventData[1] == "timer" and eventData[2] == next_Try_Timer then
-                term.setCursorPos(1,4)
-                term.write("NEXT TRY")
                 next_Try = true
             end
         end
