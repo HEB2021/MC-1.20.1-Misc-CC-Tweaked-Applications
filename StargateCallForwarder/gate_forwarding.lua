@@ -53,8 +53,6 @@ function StargateEventHandler ()
         -- Did we receive a message from the other gate
         if next_Try == false then
             if eventData[1] == "timer" and eventData[2] == next_Try_Timer then
-                term.setCursorPos(1,4)
-                term.write("NEXT TRY")
                 next_Try = true
             end
         end
@@ -180,7 +178,7 @@ function StargateDialingHandler ()
                 next_Try_Timer = os.startTimer(60)
                 next_Try = false
             else
-                if (energy_Required_To_Keep_Open * 120 + energy_Required_To_Open) > energy_Stored then
+                if ((energy_Required_To_Keep_Open * 120 * 20) + energy_Required_To_Open) > energy_Stored then
                     time_At_Last_Try = os.clock()
                     next_Try_Timer = os.startTimer(60)
                     next_Try = false
@@ -325,8 +323,8 @@ function ScreenUpdates ()
             info_Screen.write("Next destination: " .. next_Connection[1])
             info_Screen.setCursorPos(1,6)
             if cost_Data ~= nil then
-                info_Screen.write("Energy/Energy Required: " .. current_Energy .. "/" .. ((cost_Data["keepAlive"] * 120) + cost_Data["open"]))
-                if ((cost_Data["keepAlive"] * 120) + cost_Data["open"]) > current_Energy then
+                info_Screen.write("Energy/Energy Required: " .. current_Energy .. "/" .. ((cost_Data["keepAlive"] * 120 * 20) + cost_Data["open"]))
+                if ((cost_Data["keepAlive"] * 120 * 20) + cost_Data["open"]) > current_Energy then
                     has_Energy = false
                 else
                     has_Energy = true
